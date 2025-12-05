@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cube Roots & Cubic Equations - Interactive Lesson</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Cube Roots & Cubic Equations</h1>
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <span class="progress-text" id="progressText">0%</span>
+            </div>
+        </div>
+
+        <!-- Phase Navigation -->
+        <div class="phase-nav">
+            <div class="phase-dot active" data-phase="1">1</div>
+            <div class="phase-dot" data-phase="2">2</div>
+            <div class="phase-dot" data-phase="3">3</div>
+            <div class="phase-dot" data-phase="4">4</div>
+            <div class="phase-dot" data-phase="5">5</div>
+        </div>
+
+        <!-- Phase 1: Introduction -->
+        <div class="content-card active" id="phase1">
+            <div class="card-header">
+                <div class="card-icon intro">∛</div>
+                <div>
+                    <div class="card-title">Welcome to Today's Lesson!</div>
+                    <div class="card-subtitle">Cube Roots & Solving x³ = q</div>
+                </div>
+            </div>
+
+            <div class="standards-box">
+                <h4>Florida Standards</h4>
+                <ul>
+                    <li><strong>MA.8.AR.2.3</strong> - Solve equations in the form x³ = q</li>
+                    <li><strong>MA.K12.MTR.3.1</strong> - Complete problems with multiple strategies</li>
+                </ul>
+            </div>
+
+            <h3 style="margin-bottom: 15px; color: #1a1a2e;">What You'll Learn Today:</h3>
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <div class="objective-number">1</div>
+                    <div>Solve equations in the form x³ = q where q is an integer</div>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-number">2</div>
+                    <div>Understand that x³ = q has exactly ONE real solution</div>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-number">3</div>
+                    <div>Calculate cube roots of perfect cubes from -125 to 125</div>
+                </div>
+                <div class="objective-card">
+                    <div class="objective-number">4</div>
+                    <div>Distinguish between quadratic (2 solutions) and cubic (1 solution) equations</div>
+                </div>
+            </div>
+
+            <div class="theorem-box">
+                <h3>The Big Idea</h3>
+                <p class="theorem-text">
+                    When you <span class="highlight">cube</span> a number, you multiply it by itself 3 times.<br>
+                    <span class="formula">2³ = 2 × 2 × 2 = 8</span>
+                    The <span class="highlight">cube root</span> is the reverse - finding what number was cubed!<br>
+                    <span class="formula">∛8 = 2</span>
+                </p>
+            </div>
+
+            <div class="nav-buttons">
+                <div></div>
+                <button class="nav-btn next" onclick="nextPhase()">
+                    Let's Learn! <span>→</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Phase 2: Video -->
+        <div class="content-card" id="phase2">
+            <div class="card-header">
+                <div class="card-icon video">🎬</div>
+                <div>
+                    <div class="card-title">Watch & Learn</div>
+                    <div class="card-subtitle">Understanding Cube Roots</div>
+                </div>
+            </div>
+
+            <div class="video-container">
+                <iframe
+                    src="https://www.youtube.com/embed/OIT9BFwvPnc"
+                    title="Cube Roots"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <div class="key-takeaways">
+                <h4>🔑 Key Takeaways</h4>
+                <div class="takeaway-item">
+                    <strong>Cubing:</strong> x³ means x × x × x (multiply by itself 3 times)
+                </div>
+                <div class="takeaway-item">
+                    <strong>Cube Root:</strong> ∛q asks "What number cubed gives q?"
+                </div>
+                <div class="takeaway-item">
+                    <strong>One Solution:</strong> Unlike x² = q (which can have 2 solutions), x³ = q always has exactly ONE real solution
+                </div>
+                <div class="takeaway-item">
+                    <strong>Negative Cubes:</strong> Negative numbers CAN have cube roots! ∛(-8) = -2
+                </div>
+            </div>
+
+            <div class="theorem-box">
+                <h3>📊 Perfect Cubes to Memorize</h3>
+                <div class="cubes-table">
+                    <div class="cube-item">
+                        <div class="number">-125</div>
+                        <div class="equation">(-5)³</div>
+                    </div>
+                    <div class="cube-item">
+                        <div class="number">-64</div>
+                        <div class="equation">(-4)³</div>
+                    </div>
+                    <div class="cube-item">
+                        <div class="number">-27</div>
+                        <div class="equation">(-3)³</div>
+                    </div>
+                    <div class="cube-item">
+                        <div class="number">-8</div>
+                        <div class="equation">(-2)³</div>
+                    </div>
+                    <div class="cube-item">
+                        <div class="number">-1</div>
+                        <div class="equation">(-1)³</div>
+                    </div>
+                    <div class="cube-item">
+                        <div class="number">0</div>
+                        <div class="equation">0³</div>
+                    </div>
+                    <div class="cube-item">
+                        <div class="number">1</div>
+                        <div class="equation">1³</div>
+                    </div>
+                    <div class="cube-item">
+                        <div class="number">8</div>
+                        <div class="equation">2³</div>
+                    </div>
+                    <div class="cube-item">
+                        <div class="number">27</div>
+                        <div class="equation">3³</div>
+                    </div>
+                    <div class="cube-item">
+                        <div class="number">64</div>
+                        <div class="equation">4³</div>
+                    </div>
+                    <div class="cube-item">
+                        <div class="number">125</div>
+                        <div class="equation">5³</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="nav-btn prev" onclick="prevPhase()">
+                    <span>←</span> Back
+                </button>
+                <button class="nav-btn next" onclick="nextPhase()">
+                    Start Practice! <span>→</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Phase 3: Guided Practice (3 Step-by-Step Problems) -->
+        <div class="content-card" id="phase3">
+            <div class="card-header">
+                <div class="card-icon practice">✏️</div>
+                <div>
+                    <div class="card-title">Guided Practice</div>
+                    <div class="card-subtitle">Let's solve together step-by-step!</div>
+                </div>
+            </div>
+
+            <!-- Exercise 1: x³ = 27 -->
+            <div class="exercise-container" id="exercise1">
+                <div class="exercise-header">
+                    <span class="exercise-badge guided">Guided Exercise 1 of 3</span>
+                </div>
+
+                <div class="problem-box">
+                    <div class="problem-question">Solve for x:</div>
+                    <div class="equation-display">x³ = 27</div>
+                </div>
+
+                <div class="steps-container">
+                    <!-- Step 1 -->
+                    <div class="step visible active" id="ex1-step1">
+                        <div class="step-header">
+                            <div class="step-number">1</div>
+                            <div class="step-title">Identify what we need to find</div>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-explanation">
+                                We need to find a number that, when <span class="math">cubed (multiplied by itself 3 times)</span>, equals 27.
+                            </div>
+                            <p style="color: #666; margin-bottom: 15px;">💡 Ask yourself: "What number × itself × itself = 27?"</p>
+                            <div class="input-group">
+                                <label>To undo cubing, we take the:</label>
+                                <select id="ex1-select1" style="padding: 10px; border-radius: 10px; border: 2px solid #e9ecef; font-size: 1rem;">
+                                    <option value="">Select...</option>
+                                    <option value="square root">Square Root</option>
+                                    <option value="cube root">Cube Root</option>
+                                    <option value="divide by 3">Divide by 3</option>
+                                </select>
+                                <button class="check-btn" onclick="checkStep1Ex1()">Check</button>
+                                <span class="result-badge" id="ex1-result1"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="step" id="ex1-step2">
+                        <div class="step-header">
+                            <div class="step-number">2</div>
+                            <div class="step-title">Take the cube root of both sides</div>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-explanation">
+                                <span class="math">x³ = 27</span><br><br>
+                                <span class="math">∛(x³) = ∛27</span><br><br>
+                                <span class="math">x = ∛27</span>
+                            </div>
+                            <p style="color: #666; margin-bottom: 15px;">💡 What number cubed equals 27? Try: 3 × 3 × 3 = ?</p>
+                            <div class="input-group">
+                                <label>x = </label>
+                                <input type="number" id="ex1-answer" placeholder="?">
+                                <button class="check-btn" onclick="checkStep2Ex1()">Check</button>
+                                <span class="result-badge" id="ex1-result2"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Verify -->
+                    <div class="step" id="ex1-step3">
+                        <div class="step-header">
+                            <div class="step-number">3</div>
+                            <div class="step-title">Verify your answer</div>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-explanation">
+                                Let's check: Does <span class="math">3³ = 27</span>?<br><br>
+                                <span class="math">3 × 3 × 3 = 9 × 3 = 27</span> ✓
+                            </div>
+                            <div class="feedback show correct">
+                                <div class="feedback-icon">🎉</div>
+                                <strong>Correct!</strong> x = 3 is the solution to x³ = 27
+                            </div>
+                            <button class="check-btn" style="margin-top: 15px;" onclick="completeExercise(1)">Continue →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 2: x³ = -8 -->
+            <div class="exercise-container" id="exercise2" style="display: none;">
+                <div class="exercise-header">
+                    <span class="exercise-badge guided">Guided Exercise 2 of 3</span>
+                </div>
+
+                <div class="problem-box">
+                    <div class="problem-question">Solve for x:</div>
+                    <div class="equation-display">x³ = -8</div>
+                </div>
+
+                <div class="steps-container">
+                    <!-- Step 1 -->
+                    <div class="step visible active" id="ex2-step1">
+                        <div class="step-header">
+                            <div class="step-number">1</div>
+                            <div class="step-title">Notice the negative!</div>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-explanation">
+                                The result is <span class="math">negative (-8)</span>. Can we find a cube root of a negative number?
+                            </div>
+                            <p style="color: #666; margin-bottom: 15px;">💡 Think: What happens when you cube a negative number?<br>
+                            (-2) × (-2) × (-2) = 4 × (-2) = -8</p>
+                            <div class="input-group">
+                                <label>Can negative numbers have cube roots?</label>
+                                <select id="ex2-select1" style="padding: 10px; border-radius: 10px; border: 2px solid #e9ecef; font-size: 1rem;">
+                                    <option value="">Select...</option>
+                                    <option value="yes">Yes!</option>
+                                    <option value="no">No</option>
+                                </select>
+                                <button class="check-btn" onclick="checkStep1Ex2()">Check</button>
+                                <span class="result-badge" id="ex2-result1"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="step" id="ex2-step2">
+                        <div class="step-header">
+                            <div class="step-number">2</div>
+                            <div class="step-title">Take the cube root</div>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-explanation">
+                                <span class="math">x³ = -8</span><br><br>
+                                <span class="math">x = ∛(-8)</span><br><br>
+                                What negative number, when cubed, gives -8?
+                            </div>
+                            <div class="input-group">
+                                <label>x = </label>
+                                <input type="number" id="ex2-answer" placeholder="?">
+                                <button class="check-btn" onclick="checkStep2Ex2()">Check</button>
+                                <span class="result-badge" id="ex2-result2"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Verify -->
+                    <div class="step" id="ex2-step3">
+                        <div class="step-header">
+                            <div class="step-number">3</div>
+                            <div class="step-title">Verify your answer</div>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-explanation">
+                                Let's check: Does <span class="math">(-2)³ = -8</span>?<br><br>
+                                <span class="math">(-2) × (-2) × (-2) = 4 × (-2) = -8</span> ✓
+                            </div>
+                            <div class="feedback show correct">
+                                <div class="feedback-icon">🎉</div>
+                                <strong>Correct!</strong> x = -2 is the solution to x³ = -8<br>
+                                <em>Remember: Negative numbers CAN have cube roots!</em>
+                            </div>
+                            <button class="check-btn" style="margin-top: 15px;" onclick="completeExercise(2)">Continue →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 3: x³ = 64 -->
+            <div class="exercise-container" id="exercise3" style="display: none;">
+                <div class="exercise-header">
+                    <span class="exercise-badge guided">Guided Exercise 3 of 3</span>
+                </div>
+
+                <div class="problem-box">
+                    <div class="problem-question">Solve for x:</div>
+                    <div class="equation-display">x³ = 64</div>
+                </div>
+
+                <div class="steps-container">
+                    <!-- Step 1 -->
+                    <div class="step visible active" id="ex3-step1">
+                        <div class="step-header">
+                            <div class="step-number">1</div>
+                            <div class="step-title">Compare to x² = 64</div>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-explanation">
+                                <strong>Important difference:</strong><br><br>
+                                <span class="math">x² = 64</span> has TWO solutions: x = 8 or x = -8<br>
+                                (because 8² = 64 AND (-8)² = 64)<br><br>
+                                <span class="math">x³ = 64</span> has only ONE solution!<br>
+                                (because only positive × positive × positive = positive)
+                            </div>
+                            <div class="input-group">
+                                <label>How many solutions does x³ = 64 have?</label>
+                                <select id="ex3-select1" style="padding: 10px; border-radius: 10px; border: 2px solid #e9ecef; font-size: 1rem;">
+                                    <option value="">Select...</option>
+                                    <option value="0">Zero</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                </select>
+                                <button class="check-btn" onclick="checkStep1Ex3()">Check</button>
+                                <span class="result-badge" id="ex3-result1"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="step" id="ex3-step2">
+                        <div class="step-header">
+                            <div class="step-number">2</div>
+                            <div class="step-title">Find the cube root</div>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-explanation">
+                                <span class="math">x = ∛64</span><br><br>
+                                Think: What number × itself × itself = 64?<br>
+                                Try 4: 4 × 4 × 4 = 16 × 4 = ?
+                            </div>
+                            <div class="input-group">
+                                <label>x = </label>
+                                <input type="number" id="ex3-answer" placeholder="?">
+                                <button class="check-btn" onclick="checkStep2Ex3()">Check</button>
+                                <span class="result-badge" id="ex3-result2"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Verify -->
+                    <div class="step" id="ex3-step3">
+                        <div class="step-header">
+                            <div class="step-number">3</div>
+                            <div class="step-title">Verify your answer</div>
+                        </div>
+                        <div class="step-content">
+                            <div class="step-explanation">
+                                Let's check: Does <span class="math">4³ = 64</span>?<br><br>
+                                <span class="math">4 × 4 × 4 = 16 × 4 = 64</span> ✓
+                            </div>
+                            <div class="feedback show correct">
+                                <div class="feedback-icon">🎉</div>
+                                <strong>Correct!</strong> x = 4 is the ONLY solution to x³ = 64<br>
+                                <em>(Note: -4 is NOT a solution because (-4)³ = -64, not 64)</em>
+                            </div>
+                            <button class="check-btn" style="margin-top: 15px;" onclick="completeExercise(3)">Continue →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="nav-btn prev" onclick="prevPhase()">
+                    <span>←</span> Back
+                </button>
+                <button class="nav-btn next" onclick="nextPhase()" id="phase3Next" disabled>
+                    Independent Practice <span>→</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Phase 4: Independent Practice -->
+        <div class="content-card" id="phase4">
+            <div class="card-header">
+                <div class="card-icon practice">🎯</div>
+                <div>
+                    <div class="card-title">Independent Practice</div>
+                    <div class="card-subtitle">Now it's YOUR turn! Solve for x.</div>
+                </div>
+            </div>
+
+            <div class="theorem-box" style="margin-top: 0; margin-bottom: 30px;">
+                <h3>Remember!</h3>
+                <p class="theorem-text">
+                    To solve <span class="highlight">x³ = q</span>, take the cube root: <span class="highlight">x = ∛q</span><br>
+                    There is always exactly <span class="highlight">ONE</span> real solution!
+                </p>
+            </div>
+
+            <div class="exercise-container">
+                <div class="exercise-header">
+                    <span class="exercise-badge independent">Solve for x - 10 Problems</span>
+                    <span style="color: #666;">Score: <span id="independentScore">0</span>/10</span>
+                </div>
+
+                <!-- Problem 1: x³ = 8 -->
+                <div class="quick-check" id="ind1">
+                    <div class="quick-equation"><strong>1.</strong> x³ = 8</div>
+                    <div class="quick-input">
+                        <span>x = </span>
+                        <input type="number" id="ind1-input" placeholder="?">
+                        <button class="quick-btn" onclick="checkIndependent(1, 2)">Check</button>
+                    </div>
+                    <div class="quick-result" id="ind1-result"></div>
+                </div>
+
+                <!-- Problem 2: x³ = 125 -->
+                <div class="quick-check" id="ind2">
+                    <div class="quick-equation"><strong>2.</strong> x³ = 125</div>
+                    <div class="quick-input">
+                        <span>x = </span>
+                        <input type="number" id="ind2-input" placeholder="?">
+                        <button class="quick-btn" onclick="checkIndependent(2, 5)">Check</button>
+                    </div>
+                    <div class="quick-result" id="ind2-result"></div>
+                </div>
+
+                <!-- Problem 3: x³ = -27 -->
+                <div class="quick-check" id="ind3">
+                    <div class="quick-equation"><strong>3.</strong> x³ = -27</div>
+                    <div class="quick-input">
+                        <span>x = </span>
+                        <input type="number" id="ind3-input" placeholder="?">
+                        <button class="quick-btn" onclick="checkIndependent(3, -3)">Check</button>
+                    </div>
+                    <div class="quick-result" id="ind3-result"></div>
+                </div>
+
+                <!-- Problem 4: x³ = 1 -->
+                <div class="quick-check" id="ind4">
+                    <div class="quick-equation"><strong>4.</strong> x³ = 1</div>
+                    <div class="quick-input">
+                        <span>x = </span>
+                        <input type="number" id="ind4-input" placeholder="?">
+                        <button class="quick-btn" onclick="checkIndependent(4, 1)">Check</button>
+                    </div>
+                    <div class="quick-result" id="ind4-result"></div>
+                </div>
+
+                <!-- Problem 5: x³ = -64 -->
+                <div class="quick-check" id="ind5">
+                    <div class="quick-equation"><strong>5.</strong> x³ = -64</div>
+                    <div class="quick-input">
+                        <span>x = </span>
+                        <input type="number" id="ind5-input" placeholder="?">
+                        <button class="quick-btn" onclick="checkIndependent(5, -4)">Check</button>
+                    </div>
+                    <div class="quick-result" id="ind5-result"></div>
+                </div>
+
+                <!-- Problem 6: x³ = 0 -->
+                <div class="quick-check" id="ind6">
+                    <div class="quick-equation"><strong>6.</strong> x³ = 0</div>
+                    <div class="quick-input">
+                        <span>x = </span>
+                        <input type="number" id="ind6-input" placeholder="?">
+                        <button class="quick-btn" onclick="checkIndependent(6, 0)">Check</button>
+                    </div>
+                    <div class="quick-result" id="ind6-result"></div>
+                </div>
+
+                <!-- Problem 7: x³ = -1 -->
+                <div class="quick-check" id="ind7">
+                    <div class="quick-equation"><strong>7.</strong> x³ = -1</div>
+                    <div class="quick-input">
+                        <span>x = </span>
+                        <input type="number" id="ind7-input" placeholder="?">
+                        <button class="quick-btn" onclick="checkIndependent(7, -1)">Check</button>
+                    </div>
+                    <div class="quick-result" id="ind7-result"></div>
+                </div>
+
+                <!-- Problem 8: x³ = -125 -->
+                <div class="quick-check" id="ind8">
+                    <div class="quick-equation"><strong>8.</strong> x³ = -125</div>
+                    <div class="quick-input">
+                        <span>x = </span>
+                        <input type="number" id="ind8-input" placeholder="?">
+                        <button class="quick-btn" onclick="checkIndependent(8, -5)">Check</button>
+                    </div>
+                    <div class="quick-result" id="ind8-result"></div>
+                </div>
+
+                <!-- Problem 9: x³ = 27 -->
+                <div class="quick-check" id="ind9">
+                    <div class="quick-equation"><strong>9.</strong> x³ = 216</div>
+                    <div class="quick-input">
+                        <span>x = </span>
+                        <input type="number" id="ind9-input" placeholder="?">
+                        <button class="quick-btn" onclick="checkIndependent(9, 6)">Check</button>
+                    </div>
+                    <div class="quick-result" id="ind9-result"></div>
+                </div>
+
+                <!-- Problem 10: x³ = 1000 -->
+                <div class="quick-check" id="ind10">
+                    <div class="quick-equation"><strong>10.</strong> x³ = 1000</div>
+                    <div class="quick-input">
+                        <span>x = </span>
+                        <input type="number" id="ind10-input" placeholder="?">
+                        <button class="quick-btn" onclick="checkIndependent(10, 10)">Check</button>
+                    </div>
+                    <div class="quick-result" id="ind10-result"></div>
+                </div>
+            </div>
+
+            <div class="score-display" id="finalScore" style="display: none;">
+                <h3>Great Work!</h3>
+                <div class="score-number" id="finalScoreNumber">0/10</div>
+                <div class="score-text">Problems Correct</div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="nav-btn prev" onclick="prevPhase()">
+                    <span>←</span> Back
+                </button>
+                <button class="nav-btn next" onclick="nextPhase()" id="phase4Next" disabled>
+                    See Summary <span>→</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Phase 5: Completion -->
+        <div class="content-card" id="phase5">
+            <div class="completion-screen">
+                <div class="completion-icon">🎉</div>
+                <div class="completion-title">Congratulations!</div>
+                <div class="completion-message">
+                    You've completed the Cube Roots & Cubic Equations lesson!<br>
+                    Now you can solve any equation in the form x³ = q.
+                </div>
+
+                <div class="theorem-box" style="text-align: left;">
+                    <h3 style="text-align: center;">What You Learned</h3>
+                    <p class="theorem-text">
+                        <span class="highlight">✓</span> x³ = q is solved by taking the cube root: x = ∛q<br><br>
+                        <span class="highlight">✓</span> Cubic equations have exactly ONE real solution<br><br>
+                        <span class="highlight">✓</span> Negative numbers CAN have cube roots<br><br>
+                        <span class="highlight">✓</span> Perfect cubes: 1, 8, 27, 64, 125 (and their negatives)
+                    </p>
+                </div>
+
+                <div class="score-display" style="margin-top: 30px;">
+                    <h3>Your Final Score</h3>
+                    <div class="score-number" id="overallScore">0/13</div>
+                    <div class="score-text">Total Problems Completed</div>
+                </div>
+
+                <div style="margin-top: 30px;">
+                    <button class="print-btn" onclick="printResults()">
+                        🖨️ Print Results
+                    </button>
+                    <button class="restart-btn" onclick="restartLesson()">
+                        🔄 Restart Lesson
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Printable Summary -->
+        <div class="print-summary" id="printSummary">
+            <h1>Cube Roots & Cubic Equations - Lesson Results</h1>
+
+            <div class="student-info">
+                <span>Student Name: <span class="line"></span></span>
+                <span>Date: <span class="line"></span></span>
+            </div>
+
+            <div class="standards-print">
+                <h3>Florida Standards Covered</h3>
+                <p><strong>MA.8.AR.2.3</strong> - Solve equations in the form x³ = q</p>
+                <p><strong>MA.K12.MTR.3.1</strong> - Complete problems with multiple strategies</p>
+            </div>
+
+            <div class="results-section">
+                <h3>Guided Practice (3 Problems)</h3>
+                <div class="result-item correct">
+                    <span>1. x³ = 27</span>
+                    <span>x = 3 ✓</span>
+                </div>
+                <div class="result-item correct">
+                    <span>2. x³ = -8</span>
+                    <span>x = -2 ✓</span>
+                </div>
+                <div class="result-item correct">
+                    <span>3. x³ = 64</span>
+                    <span>x = 4 ✓</span>
+                </div>
+            </div>
+
+            <div class="results-section">
+                <h3>Independent Practice (10 Problems)</h3>
+                <div id="printIndependentResults"></div>
+            </div>
+
+            <div class="final-score-print">
+                <h2>Final Score</h2>
+                <div class="big-score" id="printFinalScore">0/13</div>
+                <div class="percentage" id="printPercentage">0%</div>
+            </div>
+
+            <div class="formula-reminder">
+                <h3>Remember the Formula!</h3>
+                <p>
+                    To solve <strong>x³ = q</strong>, take the cube root of both sides:<br>
+                    <strong>x = ∛q</strong><br><br>
+                    There is always exactly <strong>ONE</strong> real solution!
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
