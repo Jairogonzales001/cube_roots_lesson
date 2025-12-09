@@ -211,6 +211,13 @@ function checkIndependent(problem, correctAnswer) {
     }
 }
 
+// Print Worksheet
+function printWorksheet() {
+    document.body.classList.add('printing-worksheet');
+    window.print();
+    document.body.classList.remove('printing-worksheet');
+}
+
 // Print Results
 function printResults() {
     const resultsContainer = document.getElementById('printIndependentResults');

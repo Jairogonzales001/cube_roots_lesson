@@ -603,6 +603,24 @@ body {
     transform: none;
 }
 
+/* Print Worksheet Button */
+.print-worksheet-btn {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: transform 0.2s ease;
+}
+
+.print-worksheet-btn:hover {
+    transform: scale(1.05);
+}
+
 /* Independent Practice */
 .quick-check {
     display: flex;
@@ -938,5 +956,122 @@ body {
 
     .input-group {
         flex-direction: column;
+    }
+}
+
+/* Printable Worksheet - Hidden by default */
+.print-worksheet {
+    display: none;
+}
+
+/* Worksheet Print Styles */
+@media print {
+    body.printing-worksheet {
+        background: #fff !important;
+    }
+
+    body.printing-worksheet .container {
+        max-width: 100% !important;
+        padding: 0 !important;
+    }
+
+    body.printing-worksheet .header,
+    body.printing-worksheet .phase-nav,
+    body.printing-worksheet .content-card,
+    body.printing-worksheet .nav-buttons,
+    body.printing-worksheet .print-summary {
+        display: none !important;
+    }
+
+    body.printing-worksheet .print-worksheet {
+        display: block !important;
+        padding: 20px;
+        font-family: 'Poppins', Arial, sans-serif;
+        color: #000;
+    }
+
+    body.printing-worksheet .print-worksheet h1 {
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 5px;
+        color: #000;
+    }
+
+    body.printing-worksheet .print-worksheet .worksheet-standard {
+        text-align: center;
+        font-size: 12px;
+        color: #666;
+        margin-bottom: 20px;
+    }
+
+    body.printing-worksheet .print-worksheet .worksheet-info {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #000;
+        font-size: 14px;
+    }
+
+    body.printing-worksheet .print-worksheet .worksheet-instructions {
+        background: #f5f5f5 !important;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 25px;
+        font-size: 14px;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    body.printing-worksheet .print-worksheet .worksheet-problems {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    body.printing-worksheet .print-worksheet .worksheet-problem {
+        display: flex;
+        gap: 10px;
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        min-height: 120px;
+    }
+
+    body.printing-worksheet .print-worksheet .problem-number {
+        font-weight: 700;
+        font-size: 16px;
+    }
+
+    body.printing-worksheet .print-worksheet .problem-content {
+        flex: 1;
+    }
+
+    body.printing-worksheet .print-worksheet .problem-equation {
+        font-size: 18px;
+        font-weight: 600;
+        font-family: 'Courier New', monospace;
+        margin-bottom: 10px;
+    }
+
+    body.printing-worksheet .print-worksheet .work-space {
+        font-size: 12px;
+        color: #666;
+        margin-bottom: 30px;
+    }
+
+    body.printing-worksheet .print-worksheet .answer-line {
+        font-size: 14px;
+        font-weight: 600;
+        margin-top: auto;
+    }
+
+    body.printing-worksheet .print-worksheet .worksheet-reference {
+        margin-top: 25px;
+        padding: 12px;
+        border: 2px solid #000;
+        border-radius: 8px;
+        text-align: center;
+        font-size: 13px;
     }
 }
